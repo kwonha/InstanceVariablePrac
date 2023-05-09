@@ -28,9 +28,12 @@ namespace InstanceVariablePrac
             Console.WriteLine();
 
             List<Student> list = new List<Student>();
-            list.Add(new Student() { name = "곽경희", grade = 3 });
+            list.Add(new Student() { name = "곽경희", grade = 1 });
             list.Add(new Student() { name = "권하은", grade = 2 });
-            list.Add(new Student() { name = "김선혜", grade = 1 });
+            list.Add(new Student() { name = "김선혜", grade = 3 });
+            list.Add(new Student() { name = "김하늘", grade = 4 });
+            list.Add(new Student() { name = "배서연", grade = 1 });
+            list.Add(new Student() { name = "백지민", grade = 2 });
 
             List<Student> list2 = new List<Student>()
             {
@@ -43,14 +46,55 @@ namespace InstanceVariablePrac
             {
                 Console.WriteLine(item);
             }
+
+            Console.WriteLine();
+
             foreach (var item in list2)
             {
                 Console.WriteLine(item);
             }
 
+            Console.WriteLine();
 
+            //list 안에 인스턴스 지우기
 
+            // 아이템 삭제 -> 리스트 손상?,, -> 그 상태로 for문 돌리면 안됨... -> 예외발생
+            // -> 그냥 foreach는 쓰면 안됨. 그냥 안됨. 쓰지마.
+            /*foreach (var item in list) 
+            {
+                if(item.grade == 3) 
+                {
+                    list.Remove(item); 
+                }
+            }*/
 
+            //잘못 삭제되는 코드
+            for (int i = 0; i< list.Count; i++)
+            {
+                if (list[i].grade > 1)
+                {
+                    list.RemoveAt(i);   
+                }
+            }
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine() ;
+
+            //뒤에서부터 삭제하면 문제를 피할 수 있다.(밀리지 않도록)
+            for (int i = list.Count-1; i>=0; i--)
+            {
+                if (list[i].grade > 1)
+                {
+                    list.RemoveAt(i);
+                }
+            }
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
 
 
 
