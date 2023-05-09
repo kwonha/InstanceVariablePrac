@@ -24,6 +24,11 @@ namespace InstanceVariablePrac
             Console.WriteLine(Product.origin);
             Console.WriteLine(product1.name + " / " + product1.price);
             Console.WriteLine(product1);
+
+            List<Student> list = new List<Student>();
+            list.Add(new Student() { name = "곽경희", grade = 3 });
+            list.Add(new Student() { name = "권하은", grade = 2 });
+            list.Add(new Student() { name = "김선혜", grade = 1 });
         }
     }
 }
