@@ -2,7 +2,7 @@
 {
     class Product
     {
-        public string name;
-        public int price;
+        public string name = "default";
+        public int price = 0;
     }
 }
